@@ -6,25 +6,43 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  View
+  View,
 } from 'react-native';
+import LoginPage from './src/Containers/LoginPage';
 import HomePage from './src/Containers/HomePage';
+import Header from './src/Components/Header';
+import { createStackNavigator } from 'react-navigation';
 
-type Props = {};
+const PublicScreens = createStackNavigator(
+  {
+    App: {
+      screen: LoginPage,
+    }
+  },
+  {
+    headerMode: 'none',
+});
+
+const PriateScreens = createStackNavigator(
+  {
+    App: {
+      screen: HomePage,
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      header: <Header />
+    })
+  }
+);
+
 export default class App extends Component<Props> {
+  state = {
+    userLogged: true,
+  }
   render() {
-    return (
-      <View style={styles.container}>
-        <HomePage />
-      </View>
-    );
+    return this.state.userLogged
+    ? <PriateScreens />
+    :<PublicScreens />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});

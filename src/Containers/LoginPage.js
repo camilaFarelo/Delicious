@@ -20,7 +20,23 @@ export default class App extends Component<Props> {
   render() {
     return (
       <SafeAreaView style={styles.mainContainer}>
-        <View>HomePage</View>
+        <ImageBackground
+          style={styles.mainContainer}
+          source={require('../assets/images/bg.png')}>
+          <View style={styles.textContainer}>
+            <Text style={styles.mainTitle}>Delicious</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <DefaultInputs value={this.state.loginText} placeholder='Login'/>
+            <DefaultInputs value={this.state.password} placeholder='Password'/>
+            <TouchableOpacity style={[styles.signInButton, styles.button]}>
+              <Text style={styles.buttonText}>Sign In</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.facebookButton, styles.button]}>
+              <Text style={styles.buttonText}>Facebook</Text>
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
       </SafeAreaView>
     );
   }
