@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class App extends Component<Props> {
+export default class Header extends Component<Props> {
   render() {
     return (
       <View>
