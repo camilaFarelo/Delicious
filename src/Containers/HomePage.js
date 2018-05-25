@@ -19,20 +19,6 @@ import SettingPage from '../Components/SettingPage';
 
 const { width, height } = Dimensions.get('window');
 
-class Homepage extends Component<Props> {
-  state = {
-    loginText: '',
-    password: '',
-  };
-  render() {
-    return (
-      <SafeAreaView style={styles.mainContainer}>
-        <View>HomePage</View>
-      </SafeAreaView>
-    );
-  }
-}
-
 export default createBottomTabNavigator({
   Today: TodayPage,
   Recipes: RecipesPage,
@@ -69,49 +55,4 @@ export default createBottomTabNavigator({
       }
     },
   })
-});
-
-const DEVICE_WIDTH = Dimensions.get('window').width;
-const DEVICE_HEIGHT = Dimensions.get('window').height;
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    width: width,
-    height: height,
-    flexDirection: "column",
-  },
-  textContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputContainer: {
-    flex: 1,
-    marginLeft: 20,
-    marginRight: 20,
-    justifyContent: 'center',
-  },
-  button: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 14,
-    borderRadius: 6,
-  },
-  signInButton: {
-    backgroundColor: '#F8B601',
-  },
-  facebookButton: {
-    marginTop: 20,
-    backgroundColor: '#4266b2',
-  },
-  buttonText: {
-    color: '#fff',
-    fontFamily: 'SourceSansPro-Bold',
-  },
-  mainTitle: {
-    color: "white",
-    fontFamily: "Damion",
-    fontSize: 64,
-    paddingTop: 250,
-  }
 });

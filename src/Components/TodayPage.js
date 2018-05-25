@@ -3,7 +3,9 @@ import {
   StyleSheet,
   Text,
   View,
-  FlatList
+  FlatList,
+  ImageBackground,
+  Dimensions
 } from 'react-native';
 
 export default class RecipesPage extends Component<Props> {
@@ -11,11 +13,11 @@ export default class RecipesPage extends Component<Props> {
     const recipies = [
       {
         title: 'Test',
-        img: require("/assets/imges/bitmap.png"),
+        img: require("../assets/images/bitmap.png"),
       },
       {
         title: 'test 2',
-        img: require("/assets/imges/bitmap.png"),
+        img: require("../assets/images/bitmap.png"),
       }
     ];
     return (
@@ -35,9 +37,15 @@ export default class RecipesPage extends Component<Props> {
 
 _keyExtractor = (item, index) => item.id;
 
+const DEVICE_WIDTH = Dimensions.get('window').width;
+const DEVICE_HEIGHT = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
   cardList: {
-    flex: 1
+    flex: 1,
+    width: DEVICE_WIDTH,
+    height: DEVICE_HEIGHT,
+    backgroundColor: '#101F30'
   },
   recipiesCard: {
     borderRadius: 10,
